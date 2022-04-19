@@ -32,7 +32,6 @@ from la_forge.diagnostics import plot_chains
 from PTMCMCSampler.PTMCMCSampler import PTSampler as ptmcmc
 
 nano11_Ts = np.linspace(53216.13175403874+180,57387.78760427694-180, 134, endpoint=True)
-nano12p5_Ts = np.linspace(53216.13175403865+180, 57933.45642396011-180, 144, endpoint=True)
 
 def calculate_angular_response(gwphi, gwtheta, gwpol, skyposition):
 
@@ -209,14 +208,13 @@ def calculate_likelihood(bwm_theta, bwm_phi, bwm_log10_A, bwm_pol,
 def likelihood_chart_wrapper(ipix, nside=2, Ts=nano11_Ts):
     import time
     start_time = time.time()
-    outdir =  '/home/nima/nanograv/11yr_burst_factorizedlikelihood/final_run/ULvT_charts_ignore_epoch/'
+    outdir =  '/home/nima/nanograv/11yr_factlike/ULvT_charts/'
     if not os.path.exists(outdir):
         os.mkdir(outdir)
 
 
 
-    nano11_pklfile = '/home/nima/nanograv/11yr_burst_factorizedlikelihood/NANOGrav_11yr_DE436.pickle'
-    nano12_pklfile =  '/home/nima/nanograv/12p5yr_bwm/channelized_12yr_v3_partim_py3.pkl'
+    nano11_pklfile = '/home/nima/nanograv/11yr_factlike/NANOGrav_11yr_DE436.pickle'
 
     with open(nano11_pklfile, 'rb') as f:
         psrs=pickle.load(f)
@@ -242,7 +240,7 @@ def likelihood_chart_wrapper(ipix, nside=2, Ts=nano11_Ts):
                 loglike_chart [i,j] = calculate_likelihood(bwm_theta, bwm_phi, bwm_log10_A,
                                      bwm_pol, burst_epoch,
                                      psrs,
-                                     lookupdir = '/home/nima/nanograv/11yr_burst_factorizedlikelihood/final_run/lookup_tables_final/')
+                                     lookupdir = '/home/nima/nanograv/11yr_factlike/lookup_tables_final/')
         np.savetxt(loglike_chart_outfile, loglike_chart)
         #print("completed lookup for amplitude and epoch [{}  {}], loglike = {}".format(i,j, this_t0_l10A_loglike))
 

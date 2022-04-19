@@ -166,9 +166,9 @@ def make_lookup_table(psr, noisefile, outdir, sign, log10_rn_amps, log10_rn_amp_
                 else:
                     f.write('{:.14e}\n'.format(float(lnlike)))
 
-pkl_path = '/home/nima/nanograv/11yr_burst_factorizedlikelihood/NANOGrav_11yr_DE436.pickle'
-lookup_outdir = '/home/nima/nanograv/11yr_burst_factorizedlikelihood/final_run/lookup_tables/'
-noisefile = '/home/nima/nanograv/11yr_burst_factorizedlikelihood/noisefiles/noisedict.json'
+pkl_path = '/home/nima/nanograv/11yr_factlike/NANOGrav_11yr_DE436.pickle'
+lookup_outdir = '/home/nima/nanograv/11yr_factlike/lookup_tables_final'
+noisefile = '/home/nima/nanograv/11yr_factlike/noisefiles/noisedict.json'
 
 
 
